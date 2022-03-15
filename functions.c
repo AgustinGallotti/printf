@@ -59,30 +59,22 @@ int print_number(va_list list)
 	double f = 1;
 
 	if (n == 0)
-		_putchar('0');
-	else
 	{
-		if (n < 0)
-		{
-			nat = n * -1;
-			_putchar('-');
-			count++;
-		}
-
+		_putchar('0');
 		while (f <= nat)
 		{
 			f *= 10;
 		}
-		dc = f / 10;
+			dc = f / 10;
 
 		while (dc >= 1)
 		{
 			dig = nat / dc;
 			_putchar(dig + '0');
 			count++;
+		}
 			nat = (nat - (dc * dig));
 			dc /= 10;
-		}
 	}
 	return (count);
 }
