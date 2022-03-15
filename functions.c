@@ -59,14 +59,19 @@ int print_number(va_list list)
 	double f = 1;
 
 	if (b == 0)
-	{
 		_putchar('0');
-		while (f <= nat)
+	else
+	{
+		if (b < 0)
 		{
-			f *= 10;
+			nat = b * - 1;
+			_putchar('-');
 		}
-			dc = f / 10;
-
+			while (f <= nat)
+			{
+				f *= 10;
+			}
+				dc = f / 10;
 		while (dc >= 1)
 		{
 			dig = nat / dc;
