@@ -11,6 +11,7 @@ int _print_c(va_list list);
 int _print_s(va_list list);
 int print_number(va_list list);
 int _print_mod(va_list list);
+int reverse_str(va_list list);
 
 /**
 * argsel - struct as a selector to char and to function pointer as args
