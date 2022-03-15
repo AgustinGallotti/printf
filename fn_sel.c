@@ -10,6 +10,8 @@ int (*print_sel(char idsel))(va_list)
 		{"c", _print_c},
 		{"s", _print_s},
 		{"%", _print_mod},
+		{"d", print_number},
+		{"i", print_number},
 		{'\0', NULL}
 	};
 
@@ -24,13 +26,4 @@ int (*print_sel(char idsel))(va_list)
 	}
 	_putchar('%');
 	_putchar(idsel);
-/*
-*	solution without unkown file (for simple main file)
-*		if (fnarray[j].argument == NULL)
-*		{
-*			_putchar('%');
-*			cn++;
-*		}
-*/
-	return (fn_unk);
 }
