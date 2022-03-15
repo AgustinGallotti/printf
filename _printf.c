@@ -9,8 +9,8 @@ int _printf(const char *format, ...)
 	va_list list;
 	int i = 0, cn = 0, j = 0;
 	id argsel[] = {
-		{"c", _print_c}, {"s", _print_s}, {"d", print_number},
-		{"i", print_number}, {"%", _print_mod}, {"b", _print_b}, {'\0', NULL}
+		{"c", _print_c}, {"s", _print_s}, {"d", "i", print_number},
+		{"%", _print_mod}, {"b", _print_b}, {'\0', NULL},
 	};
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	{

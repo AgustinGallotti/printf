@@ -84,7 +84,3 @@ int _print_b(va_list list)
 	}
 	return (count);
 }
-/**
-*
-*
-*/
