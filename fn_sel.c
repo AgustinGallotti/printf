@@ -4,9 +4,9 @@
 * @idsel: char to compare
 * Return: function used and counter
 */
-int (*print_sel(char idsel))(va_list)
+int (*print_number(char *argument))(va_list list)
 {
-	id fnarray[] = {
+	id argsel[] = {
 		{"c", _print_c},
 		{"s", _print_s},
 		{"%", _print_mod},
@@ -17,13 +17,23 @@ int (*print_sel(char idsel))(va_list)
 
 	int j = 0;
 
-	for (j = 0; fnarray[j].argument != NULL; j++)
+	for (j = 0; *argsel[j].argument != NULL; j++)
 	{
-		if (idsel == *fnarray[j].argument)
+		if (argument == *argsel[j].argument)
 		{
-			return (fnarray[j].f);
+			return (*argsel[j].f);
 		}
 	}
 	_putchar('%');
-	_putchar(idsel);
+	_putchar(argument);
+	return (counter_cn);
+}
+int counter_cn(va_list list)
+{
+	(void)list;
+	int count = 0;
+
+	count++;
+	count++;
+	return (count);
 }
