@@ -54,11 +54,11 @@ int _print_mod(va_list list)
 */
 int print_number(va_list list)
 {
-	int n = va_arg(list, int);
-	unsigned int dc, dig, nat = n, count = 0;
+	int b = va_arg(list, int);
+	unsigned int dc, dig, nat = b, count = 0;
 	double f = 1;
 
-	if (n == 0)
+	if (b == 0)
 	{
 		_putchar('0');
 		while (f <= nat)
