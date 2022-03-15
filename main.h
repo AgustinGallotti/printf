@@ -13,7 +13,7 @@ int print_number(va_list list);
 int _print_mod(va_list list);
 
 /**
-* struct structu - struct as a selector to char and to function pointer as args
+* argsel - struct as a selector to char and to function pointer as args
 * @argument: argument selector
 * @f: functions
 */

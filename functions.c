@@ -70,7 +70,9 @@ int print_number(va_list list)
 		}
 
 		while (f <= nat)
+		{
 			f *= 10;
+		}
 		dc = f / 10;
 
 		while (dc >= 1)
