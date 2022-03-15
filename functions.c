@@ -52,7 +52,7 @@ int _print_mod(va_list list)
 * @list: lista buscadora
 * Return: count
 */
-int print_number(va_list list)
+int _print_b(va_list list)
 {
 	int b = va_arg(list, int);
 	unsigned int dc, dig, nat = b, count = 0;
@@ -66,6 +66,7 @@ int print_number(va_list list)
 		{
 			nat = b * - 1;
 			_putchar('-');
+			count++;
 		}
 			while (f <= nat)
 			{
@@ -83,3 +84,7 @@ int print_number(va_list list)
 	}
 	return (count);
 }
+/**
+*
+*
+*/
