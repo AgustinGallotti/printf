@@ -16,46 +16,36 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	{
-		if (format == NULL)
-			return (-1);
-	}
-	int (*fnpointer)(list);
-	int i = 0; 
-	int cn = 0;
-
-	if (format == NULL)
-		return (-1);
-
-	va_start(list, format);
-	for (i = 0; format != NULL && format[i] != '\0'; i++)
-	{
-		if (format[i] == '%')
+		va_start(list, format);
+		for (i = 0; format != NULL && format[i] != '\0'; i++)
 		{
-			for (j = 0; argsel[j].argument != NULL; j++)
+			if (format[i] == '%')
 			{
-				i++, cn += argsel[j].f(list);
-				break;
+				for (j = 0; argsel[j].argument != NULL; j++)
+				{
+					if (argsel[j].argument[0] == format[i + 1])
+					{
+						i++, cn += argsel[j].f(list);
+						break;
+					}
+					if (argsel[j + 1].argument == NULL)
+					{
+						if (format[i + 1] > 32 && format[i + 1] < 127)
+						{
+							cn++, _putchar('%');
+						}
+						else
+							return (-1);
+					}
+				}
 			}
-			if (argsel[j].argument == NULL)
+			else
 			{
-				cn++, _putchar('%');
-				return (-1);
+				_putchar(format[i]);
+				cn++;
 			}
-			argsel[0] == format[i + 1];
-			i++, cn += (list);
-			if (format[i + 1] == '\0')
-				return (-1);
-
-			fnpointer = print_sel(format[i + 1]);
-			cn += fnpointer(list);
-			i++;
-		}
-		else
-		{
-			_putchar(format[i]);
-			cn++;
 		}
 	}
-	va_end(list);
-	return (cn);
-}
+		va_end(list);
+		return (cn);
+	}
