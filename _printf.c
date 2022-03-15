@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 		{"c", _print_c}, {"s", _print_s}, {"d", print_number},
 		{"i", print_number}, {"%", _print_mod}, {'\0', NULL},
 	};
-
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	{
 		va_start(list, format);
@@ -48,4 +47,4 @@ int _printf(const char *format, ...)
 	}
 		va_end(list);
 		return (cn);
-	}
+}
