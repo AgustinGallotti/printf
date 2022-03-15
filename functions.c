@@ -78,27 +78,3 @@ int print_number(va_list list)
 	}
 	return (count);
 }
-/**
-*
-*
-*
-*
-*/
-int reverse_str(va_list list)
-{
-	int a = 0;
-	int b = 0;
-	char *str;
-	
-	while (str[a] != '\0')
-	{
-		a++;
-		b++;
-	}
-	
-	for (b = a - 1; >= a / 2; b--)
-	{
-		a = str[b];
-		str[b] = str[a - b -1];
-	}
-}
