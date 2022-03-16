@@ -129,7 +129,7 @@ int _print_s(va_list list)
 int _print_mod(va_list list)
 {
 	int cn = 0;
-	(void) list;
+	(void)list;
 
 	_putchar('%');
 	cn++;
