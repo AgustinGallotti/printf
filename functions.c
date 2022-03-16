@@ -1,5 +1,40 @@
 #include "main.h"
 /**
+* call - llamada al contador
+* @list: lista
+* @format: formato
+* Return: returnar
+*/
+int (*call(char *format)(va_list list))
+{
+a = 0;
+
+id argsel[] = {
+        {"c", _print_c}, {"s", _print_s}, {"%", _print_mod}, {'\0', NULL}
+    };
+	for (a = 0; *argsel[a].argumento != '\0'; a++)
+		if (*argsel[a].argumentos == *format)
+			return (argsel[a].f)
+	_putchar('%');
+	_putchar(argumento)
+	return(counter);
+}
+/**
+* counter - counter
+* @list: lista
+* Return: returnar
+*/
+int counter(va_list list)
+{
+(void)list;
+	cn = 0;
+
+		cn++;
+		cn++;
+
+return(cn);
+}
+/**
 * _print_c - print a char
 * @list: arg from list
 * Return: counter
@@ -52,6 +87,7 @@ int _print_mod(va_list list)
 * @list: lista buscadora
 * Return: count
 */
+/**
 int _print_b(va_list list)
 {
 	int b = va_arg(list, int);
@@ -83,4 +119,4 @@ int _print_b(va_list list)
 			dc /= 10;
 	}
 	return (count);
-}
+}**/

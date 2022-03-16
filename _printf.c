@@ -8,43 +8,35 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int i = 0, cn = 0, j = 0;
-	id argsel[] = {
-		{"c", _print_c}, {"s", _print_s}, {"d", "i", print_number},
-		{"%", _print_mod}, {"b", _print_b}, {'\0', NULL},
-	};
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	
+	int (*caler)(va_list list)
+
+	va_start(list, format)
+	if (format == NULL)
 	{
-		va_start(list, format);
-		for (i = 0; format != NULL && format[i] != '\0'; i++)
+		return (-1);
+	}
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%')
 		{
-			if (format[i] == '%')
+			if (format[i + i] == '\0')
 			{
-				for (j = 0; argsel[j].argument != NULL; j++)
-				{
-					if (argsel[j].argument[0] == format[i + 1])
-					{
-						i++; cn += argsel[j].f(list);
-						break;
-					}
-					if (argsel[j + 1].argument == NULL)
-					{
-						if (format[i + 1] > 32 && format[i + 1] < 127)
-						{
-							cn++; _putchar('%');
-						}
-						else
-							return (-1);
-					}
-				}
+				return (-1);
 			}
 			else
 			{
-				_putchar(format[i]);
-				cn++;
+				caler = call(format[i + 1]);
+				cn += caler(list)
+				i++;
 			}
 		}
+		else
+		{
+			write(1, &format[i], 1);
+			cn++;
+		}
 	}
-		va_end(list);
-
-		return(cn);
+	va_end(list);
+	return(cn);
 }

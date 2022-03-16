@@ -20,7 +20,7 @@ int _print_mod(va_list list);
 */
 typedef struct argsel
 {
-char *argument;
+char *argumento;
 int (*f)(va_list list);
 } id;
 
