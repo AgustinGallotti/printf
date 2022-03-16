@@ -13,6 +13,7 @@ int _print_mod(va_list list);
 int counter(va_list list);
 int (*call(char))(va_list);
 int _print_i(va_list);
+int _print_b(va_list);
 /**
 * argsel - struct as a selector to char and to function pointer as args
 * @argument: argument selecto

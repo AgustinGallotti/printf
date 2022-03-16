@@ -13,8 +13,9 @@ int (*call(char format))(va_list)
 			{"%", _print_mod},
 			{"i", _print_i},
 			{"d", _print_i},
+			{"b", _print_b},
 			{'\0', NULL}
-    };
+	 };
 
 	int j = 0;
 
@@ -28,15 +29,15 @@ int (*call(char format))(va_list)
 	_putchar('%');
 	_putchar(format);
 	return (counter);
-	
+
 }
 /**
-*
-*
-*
+* _print_i - print integer and decimal
+* @list: list
+* Return: counter
 */
 int _print_i(va_list list)
-{	
+{
 	long int n = va_arg(list, int);
 	unsigned int dc, dig, nat = n;
 	double f = 1;
@@ -72,7 +73,6 @@ int _print_i(va_list list)
 	}
 	return (count);
 }
-
 /**
 * counter - counter
 * @list: lista
@@ -82,11 +82,11 @@ int counter(va_list list)
 {
 	int cn = 0;
 	(void)list;
-	
+
 	cn++;
 	cn++;
 
-	return(cn);
+	return (cn);
 }
 /**
 * _print_c - print a char
@@ -136,41 +136,3 @@ int _print_mod(va_list list)
 
 	return (cn);
 }
-/**
-* print_number - asas
-* @list: lista buscadora
-* Return: count
-*/
-/**
-int _print_b(va_list list)
-{
-	int b = va_arg(list, int);
-	unsigned int dc, dig, nat = b, count = 0;
-	double f = 1;
-
-	if (b == 0)
-		_putchar('0');
-	else
-	{
-		if (b < 0)
-		{
-			nat = b * - 1;
-			_putchar('-');
-			count++;
-		}
-			while (f <= nat)
-			{
-				f *= 10;
-			}
-				dc = f / 10;
-		while (dc >= 1)
-		{
-			dig = nat / dc;
-			_putchar(dig + '0');
-			count++;
-		}
-			nat = (nat - (dc * dig));
-			dc /= 10;
-	}
-	return (count);
-}**/
