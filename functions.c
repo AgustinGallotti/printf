@@ -12,6 +12,7 @@ int (*call(char format))(va_list)
 			{"s", _print_s},
 			{"%", _print_mod},
 			{"i", _print_i},
+			{"d", _print_i},
 			{'\0', NULL}
     };
 
@@ -35,47 +36,43 @@ int (*call(char format))(va_list)
 *
 */
 int _print_i(va_list list)
-{
-	unsigned int i, i_cp;
-	int dgts = 0, n, cn = 0, num = va_arg(list, int);
+{	
+	long int n = va_arg(list, int);
+	unsigned int dc, dig, nat = n;
+	double f = 1;
+	int count = 0;
 
-	if (num < 0)
-	{
-		_putchar('-');
-		cn++;
-		i = (unsigned int) (0 - num);
-	}
-	else if (num == 0)
+	if (!n)
+		n = '\0';
+	if (n == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 	else
-		i = (unsigned int)num;
-
-	i_cp = i;
-
-	while (i_cp != 0)
 	{
-		i_cp /= 10;
-		dgts++;
+		if (n < 0)
+		{
+			nat = n * -1;
+			_putchar('-');
+			count++;
+		}
+
+		while (f <= nat)
+			f *= 10;
+		dc = f / 10;
+
+		while (dc >= 1)
+		{
+			dig = nat / dc;
+			count += _putchar(dig + '0');
+			nat = (nat - (dc * dig));
+			dc /= 10;
+		}
 	}
-
-	dgts--;
-
-	for (; dgts > 0; dgts--)
-	{
-		n = i / _pwr(10, dgts);
-		_putchar (n + '0');
-		cn++;
-		i = i % _pwr(10, dgts);
-	}
-
-	_putchar((i % 10) + '0');
-	cn++;
-
-	return (cn);
+	return (count);
 }
+
 /**
 * counter - counter
 * @list: lista
