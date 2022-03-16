@@ -12,11 +12,11 @@ int _print_s(va_list list);
 int _print_mod(va_list list);
 int counter(va_list list);
 int (*call(char))(va_list);
-
+int _print_i(va_list);
 /**
 * argsel - struct as a selector to char and to function pointer as args
-* @argument: argument selector
-* @f: functions
+* @argument: argument selecto
+* @f: function
 */
 typedef struct argsel
 {
@@ -25,3 +25,4 @@ int (*f)(va_list list);
 } id;
 
 #endif
+
