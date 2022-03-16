@@ -5,13 +5,13 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int _print_b(va_list list);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int _print_c(va_list list);
 int _print_s(va_list list);
-int print_number(va_list list);
 int _print_mod(va_list list);
+int counter(va_list list);
+int (*call(char))(va_list);
 
 /**
 * argsel - struct as a selector to char and to function pointer as args

@@ -7,27 +7,27 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i = 0, cn = 0, j = 0;
+	int i = 0, cn = 0;
 	
-	int (*caler)(va_list list)
+	int (*caler)(va_list);
 
-	va_start(list, format)
+	va_start(list, format);
+
 	if (format == NULL)
-	{
 		return (-1);
-	}
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + i] == '\0')
+			if (format[i + 1] == '\0')
 			{
 				return (-1);
 			}
 			else
 			{
 				caler = call(format[i + 1]);
-				cn += caler(list)
+				cn += caler(list);
 				i++;
 			}
 		}
@@ -38,5 +38,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(list);
-	return(cn);
+	return (cn);
 }

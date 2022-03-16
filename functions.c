@@ -5,19 +5,28 @@
 * @format: formato
 * Return: returnar
 */
-int (*call(char *format)(va_list list))
+int (*call(char format))(va_list)
 {
-a = 0;
-
-id argsel[] = {
-        {"c", _print_c}, {"s", _print_s}, {"%", _print_mod}, {'\0', NULL}
+	id argsel[] = {
+			{"c", _print_c},
+			{"s", _print_s},
+			{"%", _print_mod},
+			{'\0', NULL}
     };
-	for (a = 0; *argsel[a].argumento != '\0'; a++)
-		if (*argsel[a].argumentos == *format)
-			return (argsel[a].f)
+
+	int j = 0;
+
+	for (j = 0; *argsel[j].argumento != '\0'; j++)
+	{
+		if (format == *argsel[j].argumento)
+		{
+			return (argsel[j].f);
+		}
+	}
 	_putchar('%');
-	_putchar(argumento)
-	return(counter);
+	_putchar(format);
+	return (counter);
+	
 }
 /**
 * counter - counter
@@ -26,13 +35,13 @@ id argsel[] = {
 */
 int counter(va_list list)
 {
-(void)list;
-	cn = 0;
+	int cn = 0;
+	(void)list;
+	
+	cn++;
+	cn++;
 
-		cn++;
-		cn++;
-
-return(cn);
+	return(cn);
 }
 /**
 * _print_c - print a char
