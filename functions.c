@@ -27,7 +27,7 @@ int (*call(char format))(va_list)
 		}
 	}
 	_putchar('%');
-	_putchar(format);
+	_putchar(argumento);
 	return (counter);
 
 }
