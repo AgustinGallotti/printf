@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				cn += caler(list);
 				i++;
 			}
-			else if (format[i] = '%' && format[i] = '%')
+
 		}
 		else
 		{
